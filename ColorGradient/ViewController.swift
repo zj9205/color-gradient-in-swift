@@ -17,6 +17,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var endGreenSlider: UISlider!
     @IBOutlet weak var endBlueSlider: UISlider!
     
+    @IBOutlet weak var startPositionX: UISlider!
+    @IBOutlet weak var startPositionY: UISlider!
+    
+    @IBOutlet weak var endPositionX: UISlider!
+    @IBOutlet weak var endPositionY: UISlider!
+    
     @IBOutlet weak var textViewRGB: UITextView!
     
     @IBOutlet weak var colorView: UIView!
@@ -68,8 +74,10 @@ class ViewController: UIViewController {
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.startPoint = CGPoint(x: lroundf(startPositionX.value),
+                                           y: lroundf(startPositionY.value))
+        gradientLayer.endPoint = CGPoint(x: lroundf(endPositionX.value),
+                                         y: lroundf(endPositionY.value))
         
         colorView.layer.addSublayer(gradientLayer)
     }
