@@ -6,8 +6,8 @@
 
 ## changing color
 
-![changing color][color.gif]
+![changing color](color.gif)
 
 ## changing position
 
-![changing position][position.gif]
+![changing position](position.gif)
