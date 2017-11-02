@@ -19,10 +19,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var textViewRGB: UITextView!
     
+    @IBOutlet weak var colorView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         updateTextView()
+        updateGradient()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +37,7 @@ class ViewController: UIViewController {
 //        print("Start Red: \(lroundf(startRedSlider.value))")
 //        print("Start Green: \(lroundf(startGreenSlider.value))")
         updateTextView()
+        updateGradient()
     }
     
     func updateTextView() {
@@ -45,6 +49,29 @@ class ViewController: UIViewController {
                 "End Green: \t\(lroundf(endGreenSlider.value))\n" +
         "End Blue: \t\(lroundf(endBlueSlider.value))\n"
         textViewRGB.text = allColorValue
+    }
+
+    func updateGradient() {
+        let startColor = UIColor(red: CGFloat(startRedSlider.value)/255,
+                                 green: CGFloat(startRedSlider.value)/255,
+                                 blue: CGFloat(startRedSlider.value)/255,
+                                 alpha: 1)
+        
+        let endColor = UIColor(red: CGFloat(endRedSlider.value)/255,
+                               green: CGFloat(endGreenSlider.value)/255,
+                               blue: CGFloat(endBlueSlider.value)/255,
+                               alpha: 1)
+
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.frame = colorView.bounds
+        
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        
+        colorView.layer.addSublayer(gradientLayer)
     }
 }
 
