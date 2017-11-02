@@ -4,8 +4,10 @@
 * swift 4
 * iOS 11
 
-changing color 
+## changing color
+
 ![changing color][color.gif]
 
-changing position
+## changing position
+
 ![changing position][position.gif]
