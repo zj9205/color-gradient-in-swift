@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        updateTextView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,20 +33,18 @@ class ViewController: UIViewController {
     @IBAction func moveSlider(_ sender: UISlider) {
 //        print("Start Red: \(lroundf(startRedSlider.value))")
 //        print("Start Green: \(lroundf(startGreenSlider.value))")
-        print(
-            "Start Red: \(lroundf(startRedSlider.value))",
-            "Start Green: \(lroundf(startGreenSlider.value))",
-            "Start Blue: \(lroundf(startBlueSlider.value))",
-            "End Red: \(lroundf(endRedSlider.value))",
-            "End Green: \(lroundf(endGreenSlider.value))",
-            "End Blue: \(lroundf(endBlueSlider.value))",
-            separator: "\n",
-            terminator: "\n"
-        )
+        updateTextView()
     }
     
-    func showAllColorValue() {
-        
+    func updateTextView() {
+        let allColorValue =
+            "Start Red: \t\(lroundf(startRedSlider.value))\n" +
+                "Start Green: \t\(lroundf(startGreenSlider.value))\n" +
+                "Start Blue: \t\(lroundf(startBlueSlider.value))\n" +
+                "End Red: \t\(lroundf(endRedSlider.value))\n" +
+                "End Green: \t\(lroundf(endGreenSlider.value))\n" +
+        "End Blue: \t\(lroundf(endBlueSlider.value))\n"
+        textViewRGB.text = allColorValue
     }
 }
 
