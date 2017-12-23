@@ -1,4 +1,5 @@
 # color-gradient-in-swift
+# an open source to practice Swift and iOS skill
 
 * Xcode 9.1
 * swift 4
